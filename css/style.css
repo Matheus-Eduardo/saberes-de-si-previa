@@ -1,0 +1,434 @@
+/* Deep Navy Color Palette & Variables */
+:root {
+    --navy-bg: #0a1128;       /* Deepest navy for main background */
+    --navy-card: #14213d;     /* Slightly lighter navy for elements */
+    --navy-accent: #1f3b6b;   /* Accent navy for hovers */
+    --text-main: #f0f4f8;     /* Off-white for readability */
+    --text-muted: #9ba4b5;    /* Grayed out text for previews */
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--navy-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- Banner Section --- */
+.banner-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px; /* On mobile media query, this is 200px */
+    overflow: hidden;
+    background-color: #000;
+}
+
+.banner-track {
+    display: flex;
+    /* max-content allows the track to be exactly as wide as the two images combined */
+    width: max-content; 
+    height: 100%;
+    /* Increased from 40s to 70s to make the scroll much slower and more readable */
+    animation: scrollBanner 70s linear infinite; 
+}
+
+.banner-track img {
+    height: 100%;
+    /* width: auto lets the image naturally scale its width without cropping */
+    width: auto; 
+    /* max-width: none ensures the wrapper doesn't accidentally squish it */
+    max-width: none; 
+    opacity: 0.5;
+}
+
+@keyframes scrollBanner {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Keep this at -50% for the perfect loop! */
+}
+
+.banner-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    z-index: 10;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8);
+    font-family: 'Georgia', serif;
+}
+
+/* --- Navigation Menu --- */
+.main-menu {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--navy-card);
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    background-color: var(--navy-bg);
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s;
+}
+
+/* Soft shadow lift effect */
+.nav-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px var(--shadow);
+    background-color: var(--navy-accent);
+}
+
+/* --- Main Container & Controls --- */
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.controls-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-bar {
+    display: flex;
+    flex-grow: 1;
+    max-width: 60%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    background-color: var(--navy-card);
+    color: var(--text-main);
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-bar button {
+    padding: 0 1rem;
+    border: none;
+    background-color: var(--navy-accent);
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-bar button:hover {
+    background-color: #2c5292;
+}
+
+.sort-dropdown select {
+    padding: 0.5rem;
+    background-color: var(--navy-card);
+    color: var(--text-main);
+    border: 1px solid var(--navy-accent);
+    border-radius: 4px;
+    outline: none;
+}
+
+/* --- Article List --- */
+.article-grid {
+    /* Switch from Flexbox to CSS Grid for easy columns */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates 2 equal-width columns */
+    gap: 1.5rem;
+}
+
+.article-card {
+    background-color: var(--navy-card);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow);
+    /* Added transition and cursor for the hover/click effect */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer; 
+}
+
+/* Subtle visual lift for articles (smaller than the nav buttons) */
+.article-card:hover {
+    transform: translateY(-2px); /* Moves up by only 2px instead of 4px */
+    box-shadow: 0 6px 10px var(--shadow); 
+}
+
+.article-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Georgia', serif;
+}
+
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.article-date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.tag {
+    background-color: var(--navy-accent);
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+}
+
+.article-preview {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- Markdown Article Styling --- */
+.markdown-body {
+    padding: 3rem;
+	background-color: var(--navy-card);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+.markdown-body h1 {
+    font-size: 2.5rem;
+    font-family: 'Georgia', serif;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    border-bottom: 1px solid var(--navy-accent);
+    padding-bottom: 0.5rem;
+}
+
+.markdown-body h2 {
+    font-size: 1.8rem;
+    font-family: 'Georgia', serif;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.markdown-body p {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.markdown-body blockquote {
+    border-left: 4px solid var(--navy-accent);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    font-style: italic;
+    background-color: rgba(31, 59, 107, 0.2); /* Very faint navy accent */
+    padding: 1rem;
+    border-radius: 0 4px 4px 0;
+}
+
+.markdown-body ul, .markdown-body ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.markdown-body li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.markdown-body img {
+	max-width: 100%;
+}
+
+/* --- Articles Archive Page Specifics --- */
+
+/* Forces a single column layout */
+.article-list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* 5-line expanded preview for the archive */
+.article-preview-expanded {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* --- Pagination Controls --- */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.page-btn {
+    background-color: var(--navy-card);
+    color: var(--text-main);
+    border: 1px solid var(--navy-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Makes the number buttons square */
+.page-btn.square {
+    padding: 0.5rem 0.8rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.page-btn:hover:not(:disabled) {
+    background-color: var(--navy-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+.page-btn.active {
+    background-color: var(--navy-accent);
+    border-color: var(--text-main);
+    font-weight: bold;
+}
+
+.page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* --- Markdown Image Utilities --- */
+
+/* Ensures standard markdown images don't break out of the container */
+.markdown-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    margin: 1.5rem 0; /* Adds spacing above and below standard images */
+}
+
+/* Float image to the right, text wraps on the left */
+.markdown-body .img-right {
+    float: right;
+    margin: 0.5rem 0 1.5rem 2rem;
+}
+
+/* Float image to the left, text wraps on the right */
+.markdown-body .img-left {
+    float: left;
+    margin: 0.5rem 2rem 1.5rem 0;
+}
+
+/* Centers the image */
+.markdown-body .img-center {
+    display: block;
+    margin: 1.5rem auto;
+}
+
+/* Clearfix: Ensures floating images don't spill into the next section */
+.markdown-body::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+* --- About & Contact Page Specifics --- */
+
+.section-divider {
+    border: 0; /* This safely clears any hidden default browser formatting */
+    border-top: 5px solid var(--navy-accent); /* Change the 5px to whatever thickness you prefer */
+    margin: 3rem 0;
+	margin-bottom: 20px;
+}
+
+.team-profile {
+    margin-bottom: 3rem;
+}
+
+/* Clearfix to ensure the container wraps around floated images entirely */
+.team-profile::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Forces the square images to a reasonable size and rounds the corners */
+.profile-img {
+    width: 200px !important; /* Overrides default markdown image sizing */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.role-text {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: -10px; /* Pulls the role text closer to the heading */
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed var(--navy-accent);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .banner-wrapper { height: 200px; }
+    .banner-title { font-size: 2.2rem; text-align: center; width: 90%; }
+    .controls-section { flex-direction: column; align-items: stretch; }
+    .search-bar { max-width: 100%; }
+    .main-menu { flex-wrap: wrap; }
+    
+    /* Forces the grid back to a single column on smaller screens */
+    .article-grid { grid-template-columns: 1fr; }
+	
+	/* Responsive adjustment for the article padding */
+	.markdown-body { padding: 1.5rem; }
+	
+	/* On mobile, remove the text wrap so images don't get squished */
+    .markdown-body .img-right,
+    .markdown-body .img-left {
+        float: none;
+        margin: 1.5rem auto;
+        display: block;
+        width: 100% !important; /* Forces full width on small screens */
+    }
+}

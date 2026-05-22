@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos | Saberes de Si</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="banner-wrapper">
+        <div class="banner-track">
+            <img src="images/banner.webp" alt="Filósofos">
+            <img src="images/banner.webp" alt="Filósofos">
+        </div>
+        <a href="index.html" class="banner-title">Saberes de Si</a>
+    </header>
+
+    <nav class="main-menu">
+        <a href="index.html" class="nav-btn">Início</a>
+        <a href="all-articles.html" class="nav-btn">Artigos</a>
+        <a href="about.html" class="nav-btn">Sobre / Contato</a>
+    </nav>
+
+    <main class="container">
+        
+        <div class="controls-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Pesquise por título, palavras-chave, ou texto..." maxlength="100">
+                <button id="searchBtn" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+            
+            <div class="sort-dropdown">
+                <label for="sortSelect">Ordenar por: </label>
+                <select id="sortSelect">
+                    <option value="date">Data de publicação</option>
+                    <option value="title">Ordem Alfabética (A-Z)</option>
+                </select>
+            </div>
+        </div>
+
+        <section id="article-list" class="article-list-view">
+            </section>
+
+        <div id="pagination" class="pagination-container">
+            </div>
+
+    </main>
+
+    <script src="js/all-articles.js"></script>
+</body>
+</html>
