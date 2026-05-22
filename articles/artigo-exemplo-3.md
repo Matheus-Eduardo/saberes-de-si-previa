@@ -28,5 +28,3 @@ Cell 1   | Cell 2
 Cell 3   | Cell 4
 
 ![praying hands](images/the-allegory-of-the-cave/example.jpg)
-
-Now I'd like to focus on the "about/contact" page. I intend to write it using HTML and CSS to edit the style, although I want the page to have a similar format and style to what you've created for the markdown of the article pages. Write the about/contact page starting with placeholder contact information (you can use a placeholder e-mail and phone number, and a link to example.com as if it was a linktree). Below the contacts create the about section with three placeholder "people" being listed. List some things like name, age, relationship to the project (like director, researcher, etc), and below this a short biography with lorem ipsum text. To the right there will be a photo of the person, for which you can use the placeholder photo https://dummyimage.com/400x400/000/fff.jpg. Where necessary, the text should wrap around the photo.
