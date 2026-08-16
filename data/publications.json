@@ -1,0 +1,22 @@
+[
+  {
+    "id": 101,
+    "title": "Critique of Pure Reason: PDF Analysis",
+    "tags": ["Kant", "Metaphysics", "PDF"],
+    "date": "2026-06-01",
+    "body": "A complete PDF translation and analytical study of Kant's first Critique.",
+    "pdfUrl": "pdfs/kant-critique.pdf",
+    "description": "pub-description/kant-critique-desc.md",
+    "link": "publication.html?doc=kant-critique"
+  },
+  {
+    "id": 102,
+    "title": "Nicomachean Ethics Monograph",
+    "tags": ["Aristotle", "Ethics"],
+    "date": "2026-05-20",
+    "body": "Downloadable research publication on virtue ethics.",
+    "pdfUrl": "pdfs/nicomachean-ethics.pdf",
+    "description": "", 
+    "link": "publication.html?doc=nicomachean-ethics"
+  }
+]

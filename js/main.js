@@ -12,16 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchData();
 });
 
-// Fetch data from the JSON file
+// Fetch data from the JSON files
 async function fetchData() {
     try {
-        const response = await fetch('data/articles.json');
-        if (!response.ok) throw new Error("Could not load articles.");
-        
-        allArticles = await response.json();
+        // Fetch both JSON files in parallel
+        const [articlesRes, pubRes] = await Promise.all([
+            fetch('data/articles.json'),
+            fetch('data/publications.json')
+        ]);
+
+        if (!articlesRes.ok || !pubRes.ok) throw new Error("Could not load content files.");
+
+        const articles = await articlesRes.json();
+        const publications = await pubRes.json();
+
+        // Combine them into a single list for the homepage
+        allArticles = [...articles, ...publications];
         renderArticles(allArticles);
     } catch (error) {
-        articleContainer.innerHTML = `<p style="color: red;">Error loading articles: ${error.message}</p>`;
+        articleContainer.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
     }
 }
 

@@ -1,5 +1,5 @@
 // State Variables
-let allArticles = [];
+let allPublications = [];
 let currentFilteredArticles = [];
 let currentPage = 1;
 const itemsPerPage = 30; // Max articles per page
@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // Fetch data from the JSON file
 async function fetchData() {
     try {
-        const response = await fetch('data/articles.json');
-        if (!response.ok) throw new Error("Não foi possível carregar os artigos.");
+        const response = await fetch('data/publications.json');
+        if (!response.ok) throw new Error("Não foi possível carregar as publicações.");
         
-        allArticles = await response.json();
+        allPublications = await response.json();
         performSearch(); // Triggers initial render and sorting
     } catch (error) {
-        articleContainer.innerHTML = `<p style="color: red;">Erro carregando artigos: ${error.message}</p>`;
+        articleContainer.innerHTML = `<p style="color: red;">Erro carregando publicações: ${error.message}</p>`;
 		console.log(error.message);
     }
 }
@@ -36,9 +36,9 @@ function performSearch() {
     const sortBy = sortSelect.value;
     // 1. Filter
     if (query === '') {
-        currentFilteredArticles = [...allArticles];
+        currentFilteredArticles = [...allPublications];
     } else {
-        currentFilteredArticles = allArticles.filter(article => {
+        currentFilteredArticles = allPublications.filter(article => {
             const matchTitle = article.title.toLowerCase().includes(query);
             const matchBody = article.body.toLowerCase().includes(query);
             const matchTags = article.tags.some(tag => tag.toLowerCase().includes(query));
@@ -63,7 +63,7 @@ function renderPage(page, query, fromPagination=false) {
     articleContainer.innerHTML = ''; 
     
     if (currentFilteredArticles.length === 0) {
-        articleContainer.innerHTML = '<p>Nenhum artigo encontrado para sua pesquisa.</p>';
+        articleContainer.innerHTML = '<p>Nenhuma publicação encontrada para sua pesquisa.</p>';
         paginationContainer.innerHTML = ''; // Hide pagination
         return;
     }

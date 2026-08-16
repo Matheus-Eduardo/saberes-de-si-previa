@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artigo | Saberes de Si</title>
+    <title>Publicação | Saberes de Si</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -24,12 +24,16 @@
     </nav>
 
     <main class="container">
-        <article id="article-content" class="markdown-body">
-            <p>Carregando artigo...</p>
+        <article class="article-card">
+            <div id="pub-description" class="markdown-pdf" style="display: none;"></div>
+
+            <div class="pdf-container">
+                <iframe id="pdf-frame" src="" title="Visualizador de PDF"></iframe>
+            </div>
         </article>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="js/article.js"></script>
+    <script src="js/publication.js"></script>
 </body>
 </html>
